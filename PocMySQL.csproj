@@ -17,10 +17,6 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
     <IISExpressSSLPort>44395</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
@@ -223,47 +219,10 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties compilerconfig_1json__JSONSchema="" />
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-		 Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target> -->
-  <!-- And here we place our custom logic (below)
-  </Target> -->
-  <Target Name="ExcludeRootBinariesDeployment">
-    <ItemGroup>
-      <RootBinFiles Include="bin\*">
-        <InProject>false</InProject>
-      </RootBinFiles>
-    </ItemGroup>
-  </Target>
-  <Target Name="ExcludeRootBinariesPackage" DependsOnTargets="ExcludeRootBinariesDeployment" BeforeTargets="ExcludeFilesFromPackage">
-    <ItemGroup>
-      <ExcludeFromPackageFiles Include="$(ExcludeFilesFromDeployment)" />
-    </ItemGroup>
-  </Target>
-  <Target Name="CopySqlCeBinaries">
-    <ItemGroup>
-      <SqlCeBinariesx86 Include="$(ProjectDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\**\*" />
-      <SqlCeBinariesx64 Include="$(ProjectDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\**\*" />
-    </ItemGroup>
-    <Copy SourceFiles="@(SqlCeBinariesx86)" DestinationFolder="$(OutputPath)\x86\%(RecursiveDir)" SkipUnchangedFiles="true" />
-    <Copy SourceFiles="@(SqlCeBinariesx64)" DestinationFolder="$(OutputPath)\amd64\%(RecursiveDir)" SkipUnchangedFiles="true" />
-  </Target>
   <PropertyGroup>
     <PluginsBinDirectory>$(ProjectDir)\Plugins\Bin\</PluginsBinDirectory>
   </PropertyGroup>
-  <Target Name="CreatePluginsBinDirectory">
-    <MakeDir Directories="$(PluginsBinDirectory)" />
-    <!-- Now copy an empty file from \Content\Files to ensure that \Plugins\bin\ is also deployed-->
-    <Copy SourceFiles="$(ProjectDir)Content\Files\Index.htm" DestinationFolder="$(ProjectDir)Plugins\bin\" ContinueOnError="true" />
-  </Target>
-  <Target Name="AfterBuild" DependsOnTargets="MvcBuildViews">
-    <CallTarget Targets="ExcludeRootBinariesDeployment" />
-    <CallTarget Targets="CopySqlCeBinaries" />
-    <CallTarget Targets="CreatePluginsBinDirectory" />
-  </Target>
   <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>
