@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocMySQL", "PocMySQL.csproj", "{FD73A91A-69C0-4C49-BB35-BC5D2E4CCD77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{A25EE678-F3EA-47A0-B56B-698B6CBF4617}"
+	ProjectSection(SolutionItems) = preProject
+		db-script.sql = db-script.sql
+		docker-compose.yml = docker-compose.yml
+		docker-entrypoint-initdb.sh = docker-entrypoint-initdb.sh
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD73A91A-69C0-4C49-BB35-BC5D2E4CCD77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD73A91A-69C0-4C49-BB35-BC5D2E4CCD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD73A91A-69C0-4C49-BB35-BC5D2E4CCD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD73A91A-69C0-4C49-BB35-BC5D2E4CCD77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5F6B410-55BA-413B-A41C-BC2F36E18037}
+	EndGlobalSection
+EndGlobal
